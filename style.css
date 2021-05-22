@@ -73,3 +73,17 @@ p {
     align-items: center;
     margin: 0 auto;
 }
+
+
+/* hide button */
+
+.hide {
+    display: none;
+}
+
+
+/*hide question */
+
+.question-container {
+    display: none;
+}
