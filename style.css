@@ -46,12 +46,25 @@ p {
     align-content: center;
 }
 
-.btn {
+
+/* start button */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-btn {
     background-color: black;
     color: cadetblue;
     font-weight: bold;
     width: 90px;
     height: 40px;
+}
+
+.start-btn:hover {
+    border-color: blueviolet;
 }
 
 .container {
