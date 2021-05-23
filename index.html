@@ -14,26 +14,35 @@
         <div class="boxed">
             <div class="top-row">
                 <h2>View High Score</h2>
-                <div id="time">Time:0</div>
+                <div id="count">Start Timer</div>
             </div>
 
             <!-- what you'll see first -->
-            <h1 class="page-title">Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds! </p>
+            <div id="beginning-layout">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds! </p>
+            </div>
             <!-- start button -->
             <div class="controls">
                 <button id="start-btn" class="start-btn">Start Quiz</button>
             </div>
             <!-- questions and answers -->
             <div id="question-container" class="hide">
-                <p>QUESTIONS AND ANSWERS GO HERE</p>
+                <p id="question">QUESTIONS AND ANSWERS GO HERE</p>
+                <div id="answer-buttons">
+                    <button id="btn1" class="btn">Answer1</button>
+                    <button id="btn2" class="btn">Answer2</button>
+                    <button id="btn3" class="btn">Answer3</button>
+                    <button id="btn4" class="btn">Answer4</button>
+                </div>
             </div>
-            <!-- high score and intials go here -->
-            <div class="scores-initial">
-            </div>
-            <!-- whever else needs to go here :) -->
-            <div class="something-else">
-            </div>
+        </div>
+        <!-- high score and intials go here -->
+        <div class="scores-initial">
+        </div>
+        <!-- whever else needs to go here :) -->
+        <div class="something-else">
+        </div>
         </div>
     </main>
     <script src="./script.js"></script>

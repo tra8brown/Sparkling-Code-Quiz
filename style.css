@@ -75,7 +75,7 @@ p {
 }
 
 
-/* hide button */
+/* hide beginning layout design */
 
 .hide {
     display: none;
@@ -85,5 +85,12 @@ p {
 /*hide question */
 
 .question-container {
+    display: none;
+}
+
+
+/* hide code quiz and <p> */
+
+.beginning-layout {
     display: none;
 }

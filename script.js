@@ -1,12 +1,21 @@
-    //var timeEl = document.getElementById("timer");
+    var timeEl = document.getElementById("timer");
     const startButton = document.getElementById('start-btn')
     const questionContainer = document.getElementById('question-container')
-
+    const beginningLayout = document.getElementById('beginning-layout')
     const questionElement = document.getElementById('question')
     const answerButtonsElement = document.getElementById('answer-buttons')
 
-    let mixedQuestions, currentQuestion
+    const btn1 = document.getElementById('btn1')
+    const btn2 = document.getElementById('btn2')
+    const btn3 = document.getElementById('btn3')
+    const btn4 = document.getElementById('btn4')
 
+    btn1.addEventListener('click', checkAnswer1)
+    btn2.addEventListener('click', checkAnswer2)
+    btn3.addEventListener('click', checkAnswer3)
+    btn4.addEventListener('click', checkAnswer4)
+
+    let mixedQuestions, questionIndex, currentQuestion, currentCorrectAnswer
 
     startButton.addEventListener('click', startGame)
 
@@ -14,31 +23,82 @@
     function startGame() {
         console.log('Started')
         startButton.setAttribute("class", 'hide')
-        mixedQuestions = questions.sort(() => Math.random() - .5)
-        currentQuestion = 0
+        beginningLayout.classList.add('hide')
+            // mixedQuestions = questions.sort(() => Math.random() - .5)
         questionContainer.classList.remove('hide')
+        questionIndex = 0
+            //timer();
         setNextQuestion()
     }
 
     //NEXT QUESTION
     function setNextQuestion() {
-        showQuestion(mixedQuestions[currentQuestion])
+        showQuestion(questions[questionIndex])
     }
-
 
     //SHOW QUESTION
     function showQuestion(question) {
+        currentQuestion = question
+        btn1.innerText = question.answers[0].text
+        btn2.innerText = question.answers[1].text
+        btn3.innerText = question.answers[2].text
+        btn4.innerText = question.answers[3].text
         questionElement.innerText = question.question
-
     }
-    //SELECT ANSWER 
-    function SelectAnswer() {
 
+    //SELECT ANSWER 
+    function checkAnswer1() {
+        checkAnswer(btn1.innerText)
+    }
+
+    function checkAnswer2() {
+        checkAnswer(btn2.innerText)
+    }
+
+    function checkAnswer3() {
+        checkAnswer(btn3.innerText)
+    }
+
+    function checkAnswer4() {
+        checkAnswer(btn4.innerText)
+    }
+
+    function getCorrectAnswer() {
+        let currentElement
+        for (var i = 0; i < currentQuestion.answers.length - 1; i++) {
+            currentElement = currentQuestion.answers[i]
+            if (currentElement.correct == true) {
+                return currentElement.text;
+            }
+        }
+    }
+
+    function checkAnswer(answer) {
+        var correctAnswer = getCorrectAnswer();
+        if (answer == correctAnswer) {
+            console.log("answer correct");
+            // todo - ask next question
+            questionIndex++
+            setNextQuestion();
+        } else {
+            // todo - deduct from time
+            console.log("answer incorrect");
+        }
     }
 
     //TIMER
     function timer() {
-
+        var count = 15;
+        var interval = setInterval(function() {
+            document.getElementById('count').innerHTML = count;
+            count--;
+            if (count === 0) {
+                clearInterval(interval);
+                document.getElementById('count').innerHTML = 'Done';
+                alert("You're out of time!");
+            }
+        }, 1000);
+        console.log(count);
     }
 
     //TIMER DEDUCTION
@@ -46,9 +106,15 @@
 
     }
 
+    //END OF QUIZ
+
+
+    //HIGH SCORE
+
+
     //QUESTIONS
     const questions = [{
-        question: 'setAttribute() method',
+        question: 'what does a setAttribute() method do?',
         answers: [
             { text: 'can be used to add or update any attribute on an HTML element', correct: true },
             { text: 'will get the inner text content of the current element', correct: false },
