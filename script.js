@@ -15,7 +15,7 @@
     btn3.addEventListener('click', checkAnswer3)
     btn4.addEventListener('click', checkAnswer4)
 
-    let mixedQuestions, questionIndex, currentQuestion, currentCorrectAnswer
+    let mixedQuestions, questionIndex, currentQuestion, currentCorrectAnswer, count
 
     startButton.addEventListener('click', startGame)
 
@@ -24,10 +24,10 @@
         console.log('Started')
         startButton.setAttribute("class", 'hide')
         beginningLayout.classList.add('hide')
-            // mixedQuestions = questions.sort(() => Math.random() - .5)
+        mixedQuestions = questions.sort(() => Math.random() - .5)
         questionContainer.classList.remove('hide')
         questionIndex = 0
-            //timer();
+        timer();
         setNextQuestion()
     }
 
@@ -65,7 +65,7 @@
 
     function getCorrectAnswer() {
         let currentElement
-        for (var i = 0; i < currentQuestion.answers.length - 1; i++) {
+        for (var i = 0; i < currentQuestion.answers.length; i++) {
             currentElement = currentQuestion.answers[i]
             if (currentElement.correct == true) {
                 return currentElement.text;
@@ -77,25 +77,23 @@
         var correctAnswer = getCorrectAnswer();
         if (answer == correctAnswer) {
             console.log("answer correct");
-            // todo - ask next question
             questionIndex++
             setNextQuestion();
         } else {
-            // todo - deduct from time
             console.log("answer incorrect");
+            count = count - 10;
         }
     }
 
     //TIMER
     function timer() {
-        var count = 15;
+        count = 75;
         var interval = setInterval(function() {
             document.getElementById('count').innerHTML = count;
             count--;
-            if (count === 0) {
+            if (count <= 0) {
                 clearInterval(interval);
                 document.getElementById('count').innerHTML = 'Done';
-                alert("You're out of time!");
             }
         }, 1000);
         console.log(count);
@@ -107,53 +105,71 @@
     }
 
     //END OF QUIZ
+    //function showQuizResults
+
+    //SCORES
+    //function scoreKeeper() 
 
 
-    //HIGH SCORE
+    //END OF GAME HIGH SCORE
+    //function highScores() {
+
+
 
 
     //QUESTIONS
     const questions = [{
-        question: 'what does a setAttribute() method do?',
-        answers: [
-            { text: 'can be used to add or update any attribute on an HTML element', correct: true },
-            { text: 'will get the inner text content of the current element', correct: false },
-            { text: 'executes code block only a certain number of times', correct: false },
-            { text: 'is an HTML attribute that holds that tasks id', correct: false },
-        ],
-        question: 'the event.stopPropogation() method does what?',
-        answers: [
-            { text: 'holds the tasks id', correct: false },
-            { text: 'stops bubbling in elements', correct: true },
-            { text: 'creates a new task on a form being created', correct: false },
-            { text: 'returns the first first element it finds on the page, only if the first button works', correct: false },
-        ],
-        question: 'what number does the TaskIdCounter start at?',
-        answers: [
-            { text: '1', correct: false },
-            { text: '-1', correct: false },
-            { text: '0', correct: true },
-            { text: '-0', correct: false },
-        ],
-        question: 'what does statusChoice[i] do?',
-        answers: [
-            { text: 'checks for the opposite false value since the default is to check for the true value', correct: false },
-            { text: 'erases whats in the submit box after submitting', correct: false },
-            { text: 'this method can be used to add or update any attribute on an HTML element', correct: false },
-            { text: 'returns the value of the array at the given index', correct: true },
-        ],
-        question: 'what does formEl.reset do?',
-        answers: [
-            { text: 'erases whats in the submit box after submitting', correct: true },
-            { text: 'adds content before pre existing condition', correct: false },
-            { text: 'adds content after pre existing condition', correct: false },
-            { text: 'instructs browser to not carry out its default behavior', correct: false },
-        ],
-        question: 'what is a falsy value?',
-        answers: [
-            { text: 'returns the value of the array at the given index', correct: false },
-            { text: 'a value that is considered false when encountered in a Boolean context', correct: true },
-            { text: 'a way to compare if something is true or false', correct: false },
-            { text: 'sets or returns attributes and values of selected elements', correct: false },
-        ]
-    }]
+            question: 'what does a setAttribute() method used for?',
+            answers: [
+                { text: 'can be used to add or update any attribute on an HTML element', correct: true },
+                { text: 'will get the inner text content of the current element', correct: false },
+                { text: 'executes code block only a certain number of times', correct: false },
+                { text: 'is an HTML attribute that holds that tasks id', correct: false },
+            ]
+        },
+        {
+            question: 'the event.stopPropogation() method does what?',
+            answers: [
+                { text: 'holds the tasks id', correct: false },
+                { text: 'stops bubbling in elements', correct: true },
+                { text: 'creates a new task on a form being created', correct: false },
+                { text: 'returns the first first element it finds on the page, only if the first button works', correct: false },
+            ]
+        },
+        {
+            question: 'what number does the TaskIdCounter start at?',
+            answers: [
+                { text: '1', correct: false },
+                { text: '-1', correct: false },
+                { text: '0', correct: true },
+                { text: '-0', correct: false },
+            ]
+        },
+        {
+            question: 'what does statusChoice[i] do?',
+            answers: [
+                { text: 'checks for the opposite false value since the default is to check for the true value', correct: false },
+                { text: 'erases whats in the submit box after submitting', correct: false },
+                { text: 'this method can be used to add or update any attribute on an HTML element', correct: false },
+                { text: 'returns the value of the array at the given index', correct: true },
+            ]
+        },
+        {
+            question: 'what does formEl.reset do?',
+            answers: [
+                { text: 'erases whats in the submit box after submitting', correct: true },
+                { text: 'adds content before pre existing condition', correct: false },
+                { text: 'adds content after pre existing condition', correct: false },
+                { text: 'instructs browser to not carry out its default behavior', correct: false },
+            ]
+        },
+        {
+            question: 'what is a falsy value?',
+            answers: [
+                { text: 'returns the value of the array at the given index', correct: false },
+                { text: 'a value that is considered false when encountered in a Boolean context', correct: true },
+                { text: 'a way to compare if something is true or false', correct: false },
+                { text: 'sets or returns attributes and values of selected elements', correct: false },
+            ]
+        }
+    ]

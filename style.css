@@ -22,7 +22,7 @@ body {
     box-shadow: 10px 5px 5px cadetblue;
 }
 
-#time {
+#count {
     text-align: right;
     font-weight: bold;
     margin-bottom: 20px;
