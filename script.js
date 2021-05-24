@@ -29,7 +29,6 @@
         mixedQuestions = questions.sort(() => Math.random() - .5)
         questionContainer.classList.remove('hide')
         questionIndex = 0
-            //endGameResults.classList.add('hide')
         timer();
         setNextQuestion()
     }
@@ -118,10 +117,8 @@
 
         // Calculates time remaining and replaces it with score
         if (count >= 0) {
-            // var timeRemaining = secondsLeft;
             var createP2 = document.getElementById("final-score");
             createP2.innerText = "Your score is " + count;
-            // questionsDiv.appendChild(createP2);
         }
     }
 
@@ -129,6 +126,7 @@
     //END OF GAME HIGH SCORE
     //function highScores() {
 
+    endGameResults.classList.add('hide')
 
 
 
