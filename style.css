@@ -74,6 +74,17 @@ p {
     margin: 0 auto;
 }
 
+#answer-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+#answer-button {
+    border-color: blueviolet;
+}
+
 
 /* hide beginning layout design */
 
