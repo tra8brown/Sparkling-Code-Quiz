@@ -29,7 +29,7 @@
         mixedQuestions = questions.sort(() => Math.random() - .5)
         questionContainer.classList.remove('hide')
         questionIndex = 0
-        endGameResults.classList.add('hide')
+            //endGameResults.classList.add('hide')
         timer();
         setNextQuestion()
     }
@@ -121,8 +121,6 @@
             // var timeRemaining = secondsLeft;
             var createP2 = document.getElementById("final-score");
             createP2.innerText = "Your score is " + count;
-
-
             // questionsDiv.appendChild(createP2);
         }
     }
