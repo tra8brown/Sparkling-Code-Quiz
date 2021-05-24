@@ -85,6 +85,14 @@ p {
     border-color: blueviolet;
 }
 
+#submit-initials {
+    margin: none;
+}
+
+#score {
+    margin-left: 39%;
+}
+
 
 /* hide beginning layout design */
 
@@ -105,8 +113,3 @@ p {
 .beginning-layout {
     display: none;
 }
-
-
-/* #scores-initial {
-    display: none;
-} */

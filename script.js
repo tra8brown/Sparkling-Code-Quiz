@@ -132,7 +132,7 @@
 
     //QUESTIONS
     const questions = [{
-            question: 'what does a setAttribute() method used for?',
+            question: 'what is a setAttribute() method used for?',
             answers: [
                 { text: 'can be used to add or update any attribute on an HTML element', correct: true },
                 { text: 'will get the inner text content of the current element', correct: false },
@@ -150,7 +150,7 @@
             ]
         },
         {
-            question: 'what number does the TaskIdCounter start at?',
+            question: 'what number does the default TaskIdCounter start at?',
             answers: [
                 { text: '1', correct: false },
                 { text: '-1', correct: false },
@@ -177,7 +177,7 @@
             ]
         },
         {
-            question: 'what is a falsy value?',
+            question: 'what does a falsy value do?',
             answers: [
                 { text: 'returns the value of the array at the given index', correct: false },
                 { text: 'a value that is considered false when encountered in a Boolean context', correct: true },
