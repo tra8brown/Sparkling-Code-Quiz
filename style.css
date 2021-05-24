@@ -94,3 +94,7 @@ p {
 .beginning-layout {
     display: none;
 }
+
+.scores-initial {
+    display: none;
+}

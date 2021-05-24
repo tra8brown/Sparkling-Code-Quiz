@@ -4,6 +4,7 @@
     const beginningLayout = document.getElementById('beginning-layout')
     const questionElement = document.getElementById('question')
     const answerButtonsElement = document.getElementById('answer-buttons')
+    const endGameResults = document.getElementById('scores-initial')
 
     const btn1 = document.getElementById('btn1')
     const btn2 = document.getElementById('btn2')
@@ -16,6 +17,7 @@
     btn4.addEventListener('click', checkAnswer4)
 
     let mixedQuestions, questionIndex, currentQuestion, currentCorrectAnswer, count
+    let questionsAnswered = 0
 
     startButton.addEventListener('click', startGame)
 
@@ -27,6 +29,7 @@
         mixedQuestions = questions.sort(() => Math.random() - .5)
         questionContainer.classList.remove('hide')
         questionIndex = 0
+        endGameResults.classList.add('hide')
         timer();
         setNextQuestion()
     }
@@ -77,7 +80,15 @@
         var correctAnswer = getCorrectAnswer();
         if (answer == correctAnswer) {
             console.log("answer correct");
-            questionIndex++
+            if (questionIndex < questions.length - 1) {
+                questionIndex++
+            } else {
+                questionIndex = 0;
+            }
+            questionsAnswered++;
+            if (questionsAnswered == 6) {
+                showQuizResults();
+            }
             setNextQuestion();
         } else {
             console.log("answer incorrect");
@@ -94,21 +105,27 @@
             if (count <= 0) {
                 clearInterval(interval);
                 document.getElementById('count').innerHTML = 'Done';
+                // showQuizResults();
             }
         }, 1000);
         console.log(count);
     }
 
-    //TIMER DEDUCTION
-    function timerDeduction() {
-
-    }
-
     //END OF QUIZ
-    //function showQuizResults
+    function showQuizResults() {
+        questionContainer.classList.add('hide')
+        endGameResults.classList.remove('hide')
 
-    //SCORES
-    //function scoreKeeper() 
+        // Calculates time remaining and replaces it with score
+        if (count >= 0) {
+            // var timeRemaining = secondsLeft;
+            var createP2 = document.getElementById("final-score");
+            createP2.innerText = "Your score is " + count;
+
+
+            // questionsDiv.appendChild(createP2);
+        }
+    }
 
 
     //END OF GAME HIGH SCORE
@@ -172,4 +189,4 @@
                 { text: 'sets or returns attributes and values of selected elements', correct: false },
             ]
         }
-    ]
+    ];
