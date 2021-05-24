@@ -5,4 +5,4 @@
 *Added ways to contact me. 
 _https://github.com/tra8brown/Sparkling-Code-Quiz/tree/develop_
 _https://tra8brown.github.io/Sparkling-Code-Quiz/_
-![Screenshot](.screenshot.png)
+![Screenshot](./screenshot.png)
