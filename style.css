@@ -113,3 +113,7 @@ p {
 .beginning-layout {
     display: none;
 }
+
+.high-scorer {
+    display: none;
+}

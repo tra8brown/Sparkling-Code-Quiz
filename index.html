@@ -42,15 +42,19 @@
                 <p><strong>All Done!</strong></p>
                 <p id="final-score"><strong>Your final score is</strong></p>
                 <p id="submit-initials"><strong>Enter your intials:</strong></p>
-                <input type="text" id="score" name="score">
-                <input type="submit" value="Submit">
+                <input type="text" id="initials" name="initials">
+                <button id="btn-submit" class="btn">Submit</button>
 
             </div>
         </div>
         <!-- whever else needs to go here :) -->
-        <div class="high-score">
+        <div id="high-scorer">
+            <h3><strong>High Scorer</strong></h3>
+            <input type="text" id="show-score" name="highscore-results">
+            <button id="go-back" class="go-back">Go Back</button>
+            <button id="clear-highscore" class="clear-highscore">Clear High Score</button>
         </div>
-        </div>
+
     </main>
     <script src="./script.js"></script>
 </body>

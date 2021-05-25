@@ -5,7 +5,9 @@
     const questionElement = document.getElementById('question')
     const answerButtonsElement = document.getElementById('answer-buttons')
     const endGameResults = document.getElementById('scores-initial')
-
+    const finalScore = document.getElementById('high-scorer')
+    const buttonSubmit = document.getElementById('btn-submit')
+    let scores = []
     const btn1 = document.getElementById('btn1')
     const btn2 = document.getElementById('btn2')
     const btn3 = document.getElementById('btn3')
@@ -20,6 +22,8 @@
     let questionsAnswered = 0
 
     startButton.addEventListener('click', startGame)
+    endGameResults.classList.add('hide');
+    buttonSubmit.addEventListener('click', submit)
 
     //START GAME
     function startGame() {
@@ -28,6 +32,7 @@
         beginningLayout.classList.add('hide')
         mixedQuestions = questions.sort(() => Math.random() - .5)
         questionContainer.classList.remove('hide')
+        finalScore.classList.remove('hide')
         questionIndex = 0
         timer();
         setNextQuestion()
@@ -123,10 +128,23 @@
     }
 
 
-    //END OF GAME HIGH SCORE
-    //function highScores() {
+    //END OF GAME HIGH SCORE localStorage
+    function highScores(finalScore) {
+        createP2.innerText = "High Scorer"
+            //todo get intials to show here
+        const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ? [] : 1;
+        const lowestScore = highScores[NO_OF_HIGH_SCORES - 1] ? score : 0;
 
-    endGameResults.classList.add('hide')
+        localStorage.setItem("final-score");
+    }
+
+    function submit() {
+        var textBox = document.getElementById('initials');
+        console.log(textBox.value);
+        scores.push({ initials: textBox.value, score: count })
+    }
+    //clear high score button??
+    //localStorage.clear();
 
 
 
