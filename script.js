@@ -132,10 +132,10 @@
     function highScores(finalScore) {
         createP2.innerText = "High Scorer"
             //todo get intials to show here
-        const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ? [] : 1;
+        const highScores = JSON.parse(localStorage.getItem("final-score")) || [];
         const lowestScore = highScores[NO_OF_HIGH_SCORES - 1] ? score : 0;
 
-        localStorage.setItem("final-score");
+        localStorage.setItem("final-score", JSON.stringify(highScores));
     }
 
     function submit() {
